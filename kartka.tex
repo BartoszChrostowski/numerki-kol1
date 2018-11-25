@@ -36,6 +36,23 @@ $$E(f)= -\sum_{k=1}^N \frac{H^5f^{(4)}(\xi_k)}{90\cdot2^5} =- \frac{(b-a)^5}{288
 $$\underset{y\in[c,d]}{max} \left| S_1(f)(y) - \int_a^bf(x,y)dx \right| \leq e_1$$
 $$\underset{x\in[a,b]}{max} \left| S_2(f)(x) - \int_c^df(x,y)du \right| \leq e_2$$
 $$\left| S(f) - \int_c^d\int_a^b f(x,y) dx \,dy \right| \leq (d-c) e_1 + (b-a) e_2$$
+\subsection{TODO jeszcze inne jakieś tam gaussy.}
+Rząd aproksymacji równy jest ilości parametrów które ustalamy (dla gaussa przy liczeniu od 0 mamy $2n+2$)
+\section{Aproksymacja}
+Konstruujemy macierz $G = \left[\langle g_i,g_j \rangle\right]_{i,k = 0}^n$ (w wierszu nie zmienia się to co na pierwsze w iloczynie) wektor $d = \left[\langle g_i, f_i\rangle \right]_{i = 0}^n$ i szukamy rozwiązania $Ax=d$\\
+Dla dyskretnej można $M = \left[f_j(x_i)\right]_{i,k = 0}^n$ (w wierszu te same $x_i$) $G = M^TM$ \ \ \ \  $d = M^TF$ gdzie F to wektor dany z wartościami przybliżanej funkcji
+\section{Splajny}
+Naturalna funkcja sklejana to jest że na krańcach przedziału $f^{\prime\prime}(a) = f^{\prime\prime}(b) =  0$\\
+Funkcja sklejana n-tego stopnia to jest, że jest klasy $C^{n-1}$ 
+\section{Metoda iteracji prostej}
+Tw. $D$ zbiór domknięty w $\mathbb{R}$ oraz niech $g:D\rightarrow D$ i jest odwzorowaniem zwężającym wtedy metoda iteracji prostej $g$ jest zbieżna na $D$ do dokładnie jednego rozwiązania.\\
+Jeśli g jest ciągła i $D$ jest domknięty to mamy\\
+$g(x_1) - g(x_0) = g^{\prime}(\xi)(x_1 - x_0)$\\
+$g^{\prime}$ to macierz Jakobiego\\
+ponadto:\\
+$||g(x_1) - g(x_0)|| = ||g^{\prime}(\xi)(x_1 - x_0)|| \leq ||g^{\prime}(\xi)||(x_1 - x_0)||$
+jeśli $||g^{\prime}(\xi)|| < 1$ to mamy odwzorowanie zwężające.\\
+Ograniczając z góry każdy wyraz z macierzy $g^{\prime}$ otrzymamy macierz $A$ i zachodzi $||g^{\prime}(\xi)|| < ||A||$ (jeśli ograniczaliśmy $\leq$ analogicznie)
 \end{flushleft}
 \thispagestyle{empty}
 \end{document}
