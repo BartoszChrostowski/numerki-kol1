@@ -42,7 +42,14 @@ Rząd aproksymacji równy jest ilości parametrów które ustalamy (dla gaussa p
 Konstruujemy macierz $G = \left[\langle g_i,g_j \rangle\right]_{i,k = 0}^n$ (w wierszu nie zmienia się to co na pierwsze w iloczynie) wektor $d = \left[\langle g_i, f_i\rangle \right]_{i = 0}^n$ i szukamy rozwiązania $Ax=d$\\
 Dla dyskretnej można $M = \left[f_j(x_i)\right]_{i,k = 0}^n$ (w wierszu te same $x_i$) $G = M^TM$ \ \ \ \  $d = M^TF$ gdzie F to wektor dany z wartościami przybliżanej funkcji
 \section{Splajny}
-Naturalna funkcja sklejana to jest że na krańcach przedziału $f^{\prime\prime}(a) = f^{\prime\prime}(b) =  0$\\
+$S'(a)=f'(a)$, $S'(b)=f'(b)$ - warunki Hermite'a\\
+$S'(a)=S'(b)$, $S''(a)=S'(b)$ - warunki cykliczne\\
+$S''(a)=S''(b)=0$ naturalna funkcja sklejana\\
+nota-knot:$
+\begin{cases}
+    S(\frac{x_0+x_1}{2})=\frac{f(x_0)+f(x_2)}{2}, \\
+    S(\frac{x_{n-1}+x_n}{2})=\frac{f(x_{n-1})+f(x_n)}{2},
+\end{cases}$
 Funkcja sklejana n-tego stopnia to jest, że jest klasy $C^{n-1}$ 
 \section{Metoda iteracji prostej}
 Tw. $D$ zbiór domknięty w $\mathbb{R}$ oraz niech $g:D\rightarrow D$ i jest odwzorowaniem zwężającym wtedy metoda iteracji prostej $g$ jest zbieżna na $D$ do dokładnie jednego rozwiązania.\\
