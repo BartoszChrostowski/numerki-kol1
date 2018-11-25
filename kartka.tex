@@ -33,12 +33,35 @@ $$E(f) = \frac{(b-a)^3}{24N^2}f^{\prime\prime}(\xi) = \frac{H^2}{24}(b-a) f^{\pr
 \subsection{Simpson $\xi \in \left(a,b\right) \quad E(f) = I(f) - S(f)$}
 $$E(f)= -\sum_{k=1}^N \frac{H^5f^{(4)}(\xi_k)}{90\cdot2^5} =- \frac{(b-a)^5}{2880N^4}f^{(4)}(\xi) $$% \leq \frac{H^4(b-a)}{180\cdot2^4}\underset{\xi \in [a,b]}{\sup}|f^{(4)}(\xi)| $$
 \subsection{Złożona $S_1$ na $[a,b]$ $S_2$ na $[c,d]$}
+$$\int_c^d\int_a^b f(x,y) dx\, dy \approx S_2(S_1(f)) =$$
+$$=\sum_{j=0}^m B_j (\sum_{i=0}^n(A_i f(x_i,y_j))$$
+
 $$\underset{y\in[c,d]}{max} \left| S_1(f)(y) - \int_a^bf(x,y)dx \right| \leq e_1$$
 $$\underset{x\in[a,b]}{max} \left| S_2(f)(x) - \int_c^df(x,y)du \right| \leq e_2$$
 $$\left| S(f) - \int_c^d\int_a^b f(x,y) dx \,dy \right| \leq (d-c) e_1 + (b-a) e_2$$
-\subsection{TODO jeszcze inne jakieś tam gaussy.}
-Rząd aproksymacji równy jest ilości parametrów które ustalamy (dla gaussa przy liczeniu od 0 mamy $2n+2$)
+\subsection{Na trójkącie $P$ pole}
+formuła rzędu 2:
+\begin{center}
+$P\cdot f(p_{012})$ gdzie $p_{012} = \frac{1}{3}(p_0+p_1+p_2)$
+\end{center}
+formuła rzędu 3:
+\begin{center}
+$\frac{P}{3}\cdot \left[f(p_{01})+f(p_{12})+f(p_{02})\right]$ gdzie $p_{ij} = \frac{1}{2}(p_i+p_j)$
+\end{center}
+formuła rzędu 4:
+\begin{center}
+$\frac{P}{60}[ 27f(p_{012})+$\\$ + 3(f(p_0)+f(p_1)+f(p_2)) + 8(f(p_{01})+f(p_{12})+f(p_{02})$
+\end{center}
+
+\subsection{Gaussa-Legendre’a}
+Rząd kwadratury równy jest ilości parametrów które ustalamy (dla Gaussa przy liczeniu węzłów od 0 mamy $2n+2$)\\
+Błąd kw. złożonej Gaussa-Legendre’a:\\
+\begin{center}
+$(b-a)^5\frac{1}{4320N^4}f^{(4)}(\xi)$
+\end{center}
 \section{Aproksymacja}
+ciągła $\langle f,g \rangle = \int_a^b w(x)f(x)g(x) \,dx$\\
+dyskretna $\langle f,g \rangle = \sum_{i=0}^Nw_if(x_i)g(x_i)$\\\vspace{3mm}
 Konstruujemy macierz $G = \left[\langle g_i,g_j \rangle\right]_{i,k = 0}^n$ (w wierszu nie zmienia się to co na pierwsze w iloczynie) wektor $d = \left[\langle g_i, f_i\rangle \right]_{i = 0}^n$ i szukamy rozwiązania $Ax=d$\\
 Dla dyskretnej można $M = \left[f_j(x_i)\right]_{i,k = 0}^n$ (w wierszu te same $x_i$) $G = M^TM$ \ \ \ \  $d = M^TF$ gdzie F to wektor dany z wartościami przybliżanej funkcji
 \section{Splajny}
@@ -50,7 +73,26 @@ nota-knot:$
     S(\frac{x_0+x_1}{2})=\frac{f(x_0)+f(x_2)}{2}, \\
     S(\frac{x_{n-1}+x_n}{2})=\frac{f(x_{n-1})+f(x_n)}{2},
 \end{cases}$
-Funkcja sklejana n-tego stopnia to jest, że jest klasy $C^{n-1}$ 
+Funkcja sklejana n-tego stopnia to jest, że jest klasy $C^{n-1}$\\
+$\Delta_n $ - siatka, podział przedziału[a, b] tż. $a = x_0 < x_1 < ... < x_n = b$.\\
+$S_m(\Delta_n, k)$ - przestrzeń funkcji sklejanych, tż.: 1) są klasy $C^k([a, b])$, 2) ich obcięcie do każdego z podprzedziałów $[x_i, x_{i+1}] i = 0, 1, ..., n-1$ jest wielomianem stopnia co najwyżej m.\\
+\subsection{$S_1(\Delta_n, 0)$}
+$\varphi_0(x) = \frac{x_1-x}{x_1-X_0}, x \in [x_0, x_1]$\\
+$\varphi_n(x) = \frac{x-x_{n-1}}{x_n - x_{n-1}}, x \in [x_{n-1}, x_n]$\\
+$\varphi_i(x) =\begin{cases} \frac{x-x_{i-1}}{x_i - x_{i-1}}, x \in [x_{i-1}, x_i]\\ \frac{x_{i+1}-x}{x_{i+1} - x_i}, x \in [x_i, x_{i+1}]\end{cases}$ \\
+W pozostałych punktach wszystkie funkcje mają wartość 0.\\
+\subsection{$S_3(\Delta_n, 2)$}
+Węzły równo odległe, $x_i = a+ih$, $h=\frac{b-a}{n}, i =0,...,n$.\\
+$$
+\frac{1}{h^3}\begin{cases}
+(x - x_{i-2})^3 \\%& \text{dla} \hskip2ex x \in [x_{i-2},x_{i-1}]\cap [a, b], \\
+h^3 + 3h^2(x - x_{i-1}) + 3h(x - x_{i-1})^2 - 3(x - x_{i-1})^3 \\%& \text{dla} \hskip2ex x \in [x_{i-1},x_i] \cap [a, b], \\
+h^3 + 3h^2(x_{i+1} - x) + 3h(x_{i+1} - x)^2 - 3(x_{i+1} - x)^3\\%& \text{dla} \hskip2ex x \in [x_i,x_{i+1}] \cap [a, b], \\
+(x_{i+2} - x)^3 \\%& \text{dla} \hskip2ex x \in [x_{i+1},x_{i+2}] \cap [a, b], \\
+0 \\%& \text{dla pozostałych} \hskip2ex x,
+\end{cases}
+$$
+Funkcja sklejana: $S(x) = \sum_{k=-1}^{n+1} \alpha_k B_k(x)$,
 \section{Metoda iteracji prostej}
 Tw. $D$ zbiór domknięty w $\mathbb{R}$ oraz niech $g:D\rightarrow D$ i jest odwzorowaniem zwężającym wtedy metoda iteracji prostej $g$ jest zbieżna na $D$ do dokładnie jednego rozwiązania.\\
 Jeśli g jest ciągła i $D$ jest domknięty to mamy\\
