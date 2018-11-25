@@ -3,7 +3,7 @@
 %2018 sesja letnia
 
 \documentclass[twocolumn]{article}
-\usepackage[a5paper,margin=0.7cm, top=0.7cm,bottom=1cm]{geometry}
+\usepackage[a5paper,margin=0.5cm, top=0.7cm,bottom=1cm]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage[polish]{babel} 
@@ -16,7 +16,7 @@
 \sectionfont{\large}
 \subsectionfont{\normalsize}
 \usepackage{scrextend} % ? stackexchange: how to change latex less 10pt
-\changefontsizes[9pt]{6pt} %? stackexchange: how to change latex less 10pt
+\changefontsizes[9pt]{7pt} %? stackexchange: how to change latex less 10pt
 \usepackage{lipsum} %? stackexchange: how to change latex less 10pt
 \usepackage[pdftex	,pdfauthor={Bartosz Chrostowski},pdftitle={Kartka na egzamin},pdfsubject={Metody numeryczne 1}]{hyperref}
 
@@ -37,7 +37,7 @@ $$\int_c^d\int_a^b f(x,y) dx\, dy \approx S_2(S_1(f)) =$$
 $$=\sum_{j=0}^m B_j (\sum_{i=0}^n(A_i f(x_i,y_j))$$
 
 $$\underset{y\in[c,d]}{max} \left| S_1(f)(y) - \int_a^bf(x,y)dx \right| \leq e_1$$
-$$\underset{x\in[a,b]}{max} \left| S_2(f)(x) - \int_c^df(x,y)du \right| \leq e_2$$
+$$\underset{x\in[a,b]}{max} \left| S_2(f)(x) - \int_c^df(x,y)dy \right| \leq e_2$$
 $$\left| S(f) - \int_c^d\int_a^b f(x,y) dx \,dy \right| \leq (d-c) e_1 + (b-a) e_2$$
 \subsection{Na trójkącie $P$ pole}
 formuła rzędu 2:
@@ -50,8 +50,11 @@ $\frac{P}{3}\cdot \left[f(p_{01})+f(p_{12})+f(p_{02})\right]$ gdzie $p_{ij} = \f
 \end{center}
 formuła rzędu 4:
 \begin{center}
-$\frac{P}{60}[ 27f(p_{012})+$\\$ + 3(f(p_0)+f(p_1)+f(p_2)) + 8(f(p_{01})+f(p_{12})+f(p_{02})$
+$\frac{P}{60}[ 27f(p_{012})+$\\$ + 3(f(p_0)+f(p_1)+f(p_2)) + 8(f(p_{01})+f(p_{12})+f(p_{02})$\\
+\vspace{2mm}
+$P = \frac{1}{2}|det[1;\overrightarrow{x};\overrightarrow{y}]|$ - pole
 \end{center}
+Błąd dla powyższych (przypadek) $E \leq Ch^p$, gdzie $p$ - rząd kwadratur
 
 \subsection{Gaussa-Legendre’a}
 Rząd kwadratury równy jest ilości parametrów które ustalamy (dla Gaussa przy liczeniu węzłów od 0 mamy $2n+2$)\\
@@ -59,6 +62,14 @@ Błąd kw. złożonej Gaussa-Legendre’a:\\
 \begin{center}
 $(b-a)^5\frac{1}{4320N^4}f^{(4)}(\xi)$
 \end{center}
+
+\section{Wielomiany ortogonalne}
+$$\langle g,h\rangle= \int_{a}^{b} w(x)g(x)h(x)dx$$
+$$P_k (x) = ( \alpha_k x + \beta_k )P_{k-1} (x) + \gamma_k P_{k-2} (x)$$
+$$P_{-1} (x) = 0, \hspace{3mm} P_0 (x) = a_0 \neq 0$$
+$$\alpha_k = \frac{ a_k }{ a_{k-1} },\hspace{3mm} \beta_k = -\frac{ \alpha_k  \langle xP_{k-1} , P_{k-1} \rangle } { ||P_{k-1}||^2 }$$
+$$ \gamma_k = -\frac{ \alpha_k ||P_{k-1}||^2}{ \alpha_{k-1} ||P_{k-2}||^2}$$
+
 \section{Aproksymacja}
 Tw. Element $f^* \in U$ jest elementem optymalnym dla $f\in V$ ($U \subset V$) względem przestrzeni $U$ $\iff$ dla dowolnego $g \in U$ $\langle f^* -f,g\rangle = 0$ (a więc $f^* -f$ jest ortogonalny do $U$)\\
 \vspace{3mm}
