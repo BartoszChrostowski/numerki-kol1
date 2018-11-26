@@ -18,14 +18,14 @@
 \usepackage{scrextend} % ? stackexchange: how to change latex less 10pt
 \changefontsizes[9pt]{7pt} %? stackexchange: how to change latex less 10pt
 \usepackage{lipsum} %? stackexchange: how to change latex less 10pt
-\usepackage[pdftex	,pdfauthor={Bartosz Chrostowski},pdftitle={Kartka na egzamin},pdfsubject={Metody numeryczne 1}]{hyperref}
+\usepackage[pdftex	,pdfauthor={Bartosz Chrostowski et al.},pdftitle={Kartka na kolokwium},pdfsubject={Metody numeryczne 2}]{hyperref}
 
 \begin{document}
 \begin{flushleft}
-\thispagestyle{empty} %XD
+\thispagestyle{empty} %XD XD
 
 \section{Całkowanie numeryczne}
-Kwadratura jest rzędu $r$ jeśli jest dokładna dla wszystkich wielomianów stopnie $r-1$ oraz istnieje wielomian stopnia r dla której nie jest dokładna\\
+Kwadratura jest rzędu $r$ jeśli jest dokładna dla wszystkich wielomianów stopnia $\leq r-1$ oraz istnieje wielomian stopnia $r$ dla której nie jest dokładna\\
 \subsection{Trapezy $\xi \in \left(a,b\right) \quad E(f) = I(f) - S(f)$}
 $$E(f) = -\sum_{k=1}^{N}\frac{H^3f^{\prime\prime}(\xi_k)}{12} =- \frac{(b-a)^3}{12N^2}f^{\prime\prime}(\xi)$$
 \subsection{Prostokąty $\xi \in \left(a,b\right) \quad E(f) = I(f) - S(f)$}
@@ -79,7 +79,7 @@ $$\alpha_k = \frac{ a_k }{ a_{k-1} },\hspace{3mm} \beta_k = -\frac{ \alpha_k  \l
 $$ \gamma_k = -\frac{ \alpha_k ||P_{k-1}||^2}{ \alpha_{k-1} ||P_{k-2}||^2}$$
 
 \section{Aproksymacja}
-Tw. Element $f^* \in U$ jest elementem optymalnym dla $f\in V$ ($U \subset V$) względem przestrzeni $U$ $\iff$ dla dowolnego $g \in U$ $\langle f^* -f,g\rangle = 0$ (a więc $f^* -f$ jest ortogonalny do $U$)\\
+Def. Element $f^* \in U$ jest elementem optymalnym dla $f\in V$ ($U \subset V$) względem przestrzeni $U$ $\iff$ dla dowolnego $g \in U$ $\langle f^* -f,g\rangle = 0$ (a więc $f^* -f$ jest ortogonalny do $U$)\\
 \vspace{3mm}
 ciągła $\langle f,g \rangle = \int_a^b w(x)f(x)g(x) \,dx$\\
 dyskretna $\langle f,g \rangle = \sum_{i=0}^Nw_if(x_i)g(x_i)$\\\vspace{3mm}
@@ -120,7 +120,7 @@ Jeśli g jest ciągła i $D$ jest domknięty to mamy\\
 $g(x_1) - g(x_0) = g^{\prime}(\xi)(x_1 - x_0)$\\
 $g^{\prime}$ to macierz Jakobiego\\
 ponadto:\\
-$||g(x_1) - g(x_0)|| = ||g^{\prime}(\xi)(x_1 - x_0)|| \leq ||g^{\prime}(\xi)||(x_1 - x_0)||$
+$||g(x_1) - g(x_0)|| = ||g^{\prime}(\xi)(x_1 - x_0)|| \leq ||g^{\prime}(\xi)||||(x_1 - x_0)||$
 jeśli $||g^{\prime}(\xi)|| < 1$ to mamy odwzorowanie zwężające.\\
 Ograniczając z góry każdy wyraz z macierzy $g^{\prime}$ otrzymamy macierz $A$ i zachodzi $||g^{\prime}(\xi)|| < ||A||$ (jeśli ograniczaliśmy $\leq$ analogicznie)
 \end{flushleft}
