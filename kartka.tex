@@ -58,6 +58,14 @@ Błąd dla powyższych (przypadek) $E \leq Ch^p$, gdzie $p$ - rząd kwadratur
 
 \subsection{Gaussa-Legendre’a}
 Rząd kwadratury równy jest ilości parametrów które ustalamy (dla Gaussa przy liczeniu węzłów od 0 mamy $2n+2$)\\
+Wyznaczanie współczynników $A_k$ \\
+$$
+\int^b_a w(x)l_i(x)dx=A_i, \hspace{3mm} l_i(x)=\prod_{j=0,j\neq i}^{n}\frac{x-x_j}{x_i-x_j}
+$$
+albo inaczej po ówczesnym obliczeniu $x_0,\dotsc,x_n$:\\
+$$
+\int^b_a w(x)x^jdx=\sum_{i=0}^nA_ix_i^j \hspace{3mm} \text{dla} \ \ \ j = 0 ,\dotsc, n;
+$$
 Błąd kw. złożonej Gaussa-Legendre’a:\\
 \begin{center}
 $(b-a)^5\frac{1}{4320N^4}f^{(4)}(\xi)$
